@@ -1,17 +1,12 @@
-import './App.css';
-
-import Login from './Pages/Login.js';
-import Home from './Pages/Home.js';
+import 'antd/dist/antd.css';
 import Dashboard from './Pages/Dashboard';
+import Header from './Components/Header';
 
-import './Styles/styles.scss';
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-
+    <div>
+      <Header />
       <Dashboard/>
-      
     </div>
   );
 }
