@@ -1,12 +1,12 @@
 import 'antd/dist/antd.css';
-import Dashboard from './Pages/Dashboard';
 import Header from './Components/Header';
+import Home from './Pages/Home';
 
 const App = () => {
   return (
     <div>
       <Header />
-      <Dashboard/>
+      <Home/>
     </div>
   );
 }

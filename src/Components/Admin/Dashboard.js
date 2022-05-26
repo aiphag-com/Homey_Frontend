@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "../Header";
 
 const AdminDashboard = () => {
 
     return (
         <>
+              <Header />
             <div className="grid grid-cols-4 gap-4 justify-items-center">
                 <div className="col-span-2">
                     <div className="bg-[#C4C4C4] w-[22rem] h-[15rem]">
