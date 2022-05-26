@@ -26,7 +26,7 @@ const items = [
   ]),
 ];
 
-const VendedorMenu = () => {
+const SellerMenu = () => {
   const onClick = (e) => {
     console.log('click ', e);
   };
@@ -45,4 +45,4 @@ const VendedorMenu = () => {
   );
 };
 
-export default VendedorMenu;
+export default SellerMenu;
