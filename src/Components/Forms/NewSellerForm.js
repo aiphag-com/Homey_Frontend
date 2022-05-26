@@ -25,7 +25,7 @@ const NewSellerForm = () => {
   return (
     <div
       id="seller_main"
-      className="flex h-screen v-screen items-center justify-center bg-[#EFDEFF]"
+      className="flex items-center justify-center bg-[#EFDEFF]"
       onSubmit={() => alert(`Submited thing: ${form.email}`)}
     >
       <div

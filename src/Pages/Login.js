@@ -1,9 +1,13 @@
 //ENGINE
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Icon from "@mdi/react";
 //ICONS
 import { mdiEye, mdiEyeOff } from "@mdi/js";
+import LogoHomie from '../Assets/LogoHomey.png';
+import { Button, Input, Space } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+
 
 const Login = () => {
   const [loginAuth, setLoginAuth] = useState();
@@ -47,80 +51,45 @@ const Login = () => {
 
   return (
     <>
-      <div className="login_main">
-        <div className="login_main_container2">
-          <div>
-            <img
-              src="./images/LogoHomey.png"
-              alt="Homey Logo"
-              className="img__logo"
-            />
-          </div>
-
-          <h1 className="font__title">Te damos la bienvenida</h1>
-          <h2 className="font__secondary">Ingresa con tu email de empresa</h2>
-
-          <div>
-            <div>
-              <div className="login_input-container">
-                <input
-                  type="text"
-                  placeholder="email"
-                  value={loginAuth?.user_email}
-                  name="user_email"
-                  className="login_input"
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="login_input-container">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="password"
-                  name="user_password"
-                  value={loginAuth?.user_password}
-                  className="login_input"
-                  onChange={handleChange}
-                />
-
-                <button
-                  name="visibilityBtn"
-                  className="btn-password"
-                  onClick={swichPassword}
-                >
-                  {showPassword ? (
-                    <Icon path={mdiEyeOff} size={1} />
-                  ) : (
-                    <Icon path={mdiEye} size={1} />
-                  )}
-                </button>
-              </div>
-
-              <div className="font__error" id="errorText"></div>
-
-              <button className="btn-primary" onClick={handleLogin}>
-                INICIAR SESIÓN
-              </button>
-            </div>
-
-            <div className="font__terciary">
+      <div className="flex items-center justify-center align-middle	h-screen">
+        <div className="border-solid border-[3px] rounded-xl border-[#BC92E9] bg-[#ffffff]">
+          <div className="m-12 flex flex-col items-center justify-center">
+              <img
+                src={LogoHomie}
+                alt="Homey Logo"
+              />
+            <p>Te damos la bienvenida</p>
+            <p>Ingresa con tu email de empresa</p>
+                  <Space direction="vertical">
+                    <Input
+                      placeholder="email"
+                      value={loginAuth?.user_email}
+                      name="user_email"
+                      onChange={handleChange}
+                    />
+                    <Input.Password
+                      placeholder="password"
+                      name="user_password"
+                      value={loginAuth?.user_password}
+                      onChange={handleChange}
+                      iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    />
+                  </Space>
+                  <p>
+                  ¿Olvidaste tu clave? Puedes&nbsp;
+                  <a href="http://localhost:3000/error">
+                    Recuperar clave
+                  </a>
+                </p>
+                <Button onClick={handleLogin} className="my-2">
+                  INICIAR SESIÓN
+                </Button>
               <p>
-                ¿Olvidaste tu clave? Puedes&nbsp;
-                <a className="font__link" href="http://localhost:3000/error">
-                  Recuperar clave
-                </a>
+                ¿Eres empresa y quieres vender a través de la plataforma?
               </p>
-            </div>
-          </div>
-
-          <div>
-            <p className="font__quad">
-              ¿Eres empresa y quieres vender a través de la plataforma?
-            </p>
-
-            <button type="vendedor" className="btn-secondary">
-              SOLICITAR CUENTA
-            </button>
+              <Button onClick={handleLogin} className="my-2">
+                       Solicitar cuenta
+                </Button>
           </div>
         </div>
       </div>
