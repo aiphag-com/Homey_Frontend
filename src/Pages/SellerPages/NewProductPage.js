@@ -1,8 +1,8 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-import BoxNewProduct from "../Components/Forms/BoxNewProduct";
-import NewProductForm from "../Components/Forms/NewProductForm";
-import Header from "../Components/Base/Header";
+import BoxNewProduct from "../../Components/Forms/BoxNewProduct";
+import NewProductForm from "../../Components/Forms/NewProductForm";
+import Header from "../../Components/Base/Header";
 import Icon from "@mdi/react";
 import { mdiThumbUpOutline } from "@mdi/js";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import SellerManagement from "../Components/Admin/SellerManagement";
-import Header from "../Components/Base/Header";
+import SellerManagement from "../../Components/Admin/SellerManagement";
+import Header from "../../Components/Base/Header";
 
 const SellerManagementPage = () => {
 
