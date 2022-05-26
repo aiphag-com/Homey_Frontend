@@ -1,9 +1,6 @@
 //ENGINE
 import React, { useState } from "react";
 import axios from "axios";
-import Icon from "@mdi/react";
-//ICONS
-import { mdiEye, mdiEyeOff } from "@mdi/js";
 import LogoHomie from '../Assets/LogoHomey.png';
 import { Button, Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
@@ -11,8 +8,6 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 const Login = () => {
   const [loginAuth, setLoginAuth] = useState();
-  const [showPassword, setShowPassword] = useState();
-
   const handleChange = (e) => {
     const dataLogin = { ...loginAuth, [e.target.name]: e.target.value };
     setLoginAuth(dataLogin);
@@ -22,7 +17,6 @@ const Login = () => {
     loginAxios();
   };
 
-  const swichPassword = () => setShowPassword(!showPassword);
 
   const loginAxios = () => {
     const url = process.env.REACT_APP_BACKEND_API + "/api/users/login";

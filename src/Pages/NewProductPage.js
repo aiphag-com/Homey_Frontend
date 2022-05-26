@@ -2,7 +2,7 @@ import { Button } from "antd";
 import React from "react";
 import BoxNewProduct from "../Components/Forms/BoxNewProduct";
 import NewProductForm from "../Components/Forms/NewProductForm";
-import Header from "../Components/Header";
+import Header from "../Components/Base/Header";
 
 const NewProductPage = () => {
   return (

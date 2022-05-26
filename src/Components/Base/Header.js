@@ -1,5 +1,5 @@
 import { Button, PageHeader } from 'antd';
-import Logo from '../Assets/LogoHomey.png';
+import Logo from '../../Assets/LogoHomey.png'
 
 // color y centrar botton cerrar session
 const Header = () => {

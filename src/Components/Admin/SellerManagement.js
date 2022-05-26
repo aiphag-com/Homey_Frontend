@@ -1,6 +1,5 @@
 import React from "react";
 import { Pagination, Table, Tag, Input } from "antd";
-import Header from "../Header";
 const { Search } = Input;
 
 const columns = [
@@ -81,8 +80,6 @@ const onSearch = (value) => console.log(value);
 
 const SellerManagement = () => {
   return (
-    <>
-      <Header />
       <div>
 
         <div id="busqueda" className="flex p-8">
@@ -101,7 +98,6 @@ const SellerManagement = () => {
         </div>
 
       </div>
-    </>
   );
 };
 
