@@ -1,5 +1,7 @@
 import React from "react";
-import { Pagination, Table, Tag } from "antd";
+import { Pagination, Table, Tag, Input } from "antd";
+import Header from "../Header";
+const { Search } = Input;
 
 const columns = [
   {
@@ -52,7 +54,7 @@ const data = [
     key: "1",
     name: "Company 1",
     zona: "Ciudad1",
-    antiguedad: "6 meses",                                  // hacer funcion calcularAntiguedad
+    antiguedad: "6 meses", // hacer funcion calcularAntiguedad
     tags: ["Mesas", "Sillas"],
     cantidadVentas: "999",
   },
@@ -60,7 +62,7 @@ const data = [
     key: "2",
     name: "Company 2",
     zona: "Ciudad2",
-    antiguedad: "2 meses",                                  // hacer funcion calcularAntiguedad
+    antiguedad: "2 meses", // hacer funcion calcularAntiguedad
     tags: ["Sillones"],
     cantidadVentas: "999",
   },
@@ -68,26 +70,39 @@ const data = [
     key: "3",
     name: "Company 3",
     zona: "Ciudad3",
-    antiguedad: "11 meses",                                  // hacer funcion calcularAntiguedad
+    antiguedad: "11 meses", // hacer funcion calcularAntiguedad
     tags: ["Escritorios"],
     cantidadVentas: "2",
   },
 ];
 
-const App = () => {
-    return (
-        <div>
-            <div>
-                <p>BUSCAR VENDEDOR X NOMBRE</p>
-            </div>
 
-            <Table columns={columns} dataSource={data} />
+const onSearch = (value) => console.log(value);
 
-            <div className="flex">
-                <Pagination defaultCurrent={1} total={50} />
-            </div>
+const SellerManagement = () => {
+  return (
+    <>
+      <Header />
+      <div>
+
+        <div id="busqueda" className="flex p-8">
+          <Search
+            placeholder="buscar vendedor"
+            onSearch={onSearch}
+            style={{
+              width: '50%',
+            }}
+          />
         </div>
-    )
-}
 
-export default App;
+        <div id="tablas" className="flex flex-col items-center align-middle">
+          <Table className="mb-14 w-full " columns={columns} dataSource={data} size={'big'} pagination={false}/>
+          <Pagination defaultCurrent={1} total={30} />
+        </div>
+
+      </div>
+    </>
+  );
+};
+
+export default SellerManagement;
