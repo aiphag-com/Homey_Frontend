@@ -20,8 +20,6 @@ const NewSellerForm = () => {
     });
   };
 
-  console.log(form);
-
   return (
     <div
       id="seller_main"
