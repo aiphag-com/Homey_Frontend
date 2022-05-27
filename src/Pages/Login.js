@@ -46,14 +46,14 @@ const Login = () => {
   return (
     <>
       <div className="flex items-center justify-center align-middle	h-screen">
-        <div className="border-solid border-[3px] rounded-xl border-[#BC92E9] bg-[#ffffff]">
+        <div className="border-solid border-[3px] rounded-xl border-[#BC92E9] bg-[#ffffff] font-poppins leading-8">
           <div className="m-12 flex flex-col items-center justify-center">
               <img
                 src={LogoHomie}
                 alt="Homey Logo"
               />
-            <p>Te damos la bienvenida</p>
-            <p>Ingresa con tu email de empresa</p>
+            <p className="text-base text-[#696969] mt-4">Te damos la bienvenida</p>
+            <p className="text-sm text-[#949494] mt-4">Ingresa con tu email de empresa</p>
                   <Space direction="vertical">
                     <Input
                       placeholder="email"
@@ -69,21 +69,21 @@ const Login = () => {
                       iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     />
                   </Space>
-                  <p>
+                  <p className="text-sm text-[#071C65] mt-2">
                   ¿Olvidaste tu clave? Puedes&nbsp;
-                  <a href="http://localhost:3000/error">
+                  <a href="http://localhost:3000/error" className="text-[#22C7C7]">
                     Recuperar clave
                   </a>
                 </p>
-                <Button onClick={handleLogin} className="my-2">
+                <Button type="primary" onClick={handleLogin} className="my-2">
                   INICIAR SESIÓN
                 </Button>
-              <p>
+              <p className="text-base text-[#696969] mt-4">
                 ¿Eres empresa y quieres vender a través de la plataforma?
               </p>
-              <Button onClick={handleLogin} className="my-2">
+              <Button onClick={handleLogin} className="my-2 ">
                        Solicitar cuenta
-                </Button>
+              </Button>
           </div>
         </div>
       </div>

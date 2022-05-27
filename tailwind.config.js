@@ -8,7 +8,11 @@ module.exports = {
       'error': '#FE5500',
       'midnight': '#121063',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'] 
+      }
+    }
   },
   plugins: [],
 }
