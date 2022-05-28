@@ -54,7 +54,7 @@ const data = [
     name: "Company 1",
     zona: "Ciudad1",
     antiguedad: "6 meses", // hacer funcion calcularAntiguedad
-    tags: ["Mesas", "Sillas"],
+    tags: ["TAG1", "TAG2"],
     cantidadVentas: "999",
   },
   {
@@ -62,7 +62,7 @@ const data = [
     name: "Company 2",
     zona: "Ciudad2",
     antiguedad: "2 meses", // hacer funcion calcularAntiguedad
-    tags: ["Sillones"],
+    tags: ["TAG1", "TAG2"],
     cantidadVentas: "999",
   },
   {
@@ -70,7 +70,7 @@ const data = [
     name: "Company 3",
     zona: "Ciudad3",
     antiguedad: "11 meses", // hacer funcion calcularAntiguedad
-    tags: ["Escritorios"],
+    tags: ["TAG1", "TAG2"],
     cantidadVentas: "2",
   },
 ];
@@ -82,18 +82,28 @@ const SellerManagement = () => {
   return (
       <div>
 
-        <div id="busqueda" className="flex p-8">
+        <div id="busqueda" className="flex p-4 ">
           <Search
+            className="bg-[#fff1] font-poppins "
             placeholder="buscar vendedor"
             onSearch={onSearch}
+            bordered
+            size="large"
             style={{
+              //borderColor: "#000000",
               width: '50%',
             }}
           />
         </div>
 
         <div id="tablas" className="flex flex-col items-center align-middle">
-          <Table className="mb-14 w-full " columns={columns} dataSource={data} size={'big'} pagination={false}/>
+          <Table 
+          className="mb-14 w-full font-poppins p-2" 
+          columns={columns} dataSource={data}
+          size={'big'} 
+          pagination={false}
+          bordered
+          />
           <Pagination defaultCurrent={1} total={30} />
         </div>
 
