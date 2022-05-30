@@ -1,5 +1,5 @@
 import React from "react";
-import Header from '../Base/Header';
+import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
 
@@ -20,7 +20,10 @@ const AdminDashboard = () => {
                         <p className="text-[#C84444] p-4 text-3xl">Gestión Vendedores</p>
                         <div className="m-5 flex flex-col items-start">
                             <button className="text-[#C84444] bg-[#FFFFFF] p-1">Ver todos</button>
-                            <button className="text-[#C84444] border-[#C84444] border mt-2 p-1 ">Cargar nueva empresa</button>
+                            <Link to="/NewSellerForm">
+                                <button className="text-[#C84444] border-[#C84444] border mt-2 p-1 ">Cargar nueva empresa</button>
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>

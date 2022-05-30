@@ -8,6 +8,7 @@ import AdminDashboardPage from './Pages/AdminPages/AdminDashboardPage';
 import NewProductPage from './Pages/SellerPages/NewProductPage';
 import SellerManagementPage from './Pages/AdminPages/SellerManagementPage';
 import SellerDashboardPage from './Pages/SellerPages/SellerDashboardPage';
+import NewSellerForm from './Components/Forms/NewSellerForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
       <Route path="/SellerManagement"  element={<SellerManagementPage />}/>
       <Route path="/NewProductPage" element={<NewProductPage />} />
       <Route path="/SellerDashboard" element={<SellerDashboardPage />} />
+      <Route path="/NewSellerForm" element={<NewSellerForm />} />
       </Routes>
     </Router>
 );
