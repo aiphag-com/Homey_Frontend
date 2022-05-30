@@ -130,7 +130,7 @@ const Login = () => {
                 fontSize: 24
               }}
             >
-              Solicitar una cuenta
+              SOLICITAR CUENTA
             </Button>
           </div>
         </div>

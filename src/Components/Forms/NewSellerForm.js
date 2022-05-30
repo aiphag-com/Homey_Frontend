@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Icon from "@mdi/react";
-import { mdiCheckCircle, mdiCloseCircle, mdiThumbUpOutline  } from "@mdi/js";
+import { mdiBorderColor, mdiCheckCircle, mdiCloseCircle, mdiThumbUpOutline  } from "@mdi/js";
+import { Link } from "react-router-dom";
+import { Button, Input } from "antd";
 
 const NewSellerForm = () => {
   const [form, setForm] = useState({
@@ -11,8 +13,7 @@ const NewSellerForm = () => {
     telefono: "",
     cvu: "",
   });
-  const [count, setCount] = useState(3);
-
+  
   const updateForm = (e) => {
     setForm({
       ...form,
@@ -20,15 +21,28 @@ const NewSellerForm = () => {
     });
   };
 
+  //the useState shows the form page
+  const [count, setCount] = useState(1);
+  
+  const sum = ()=>{
+    setCount(count+1)
+    console.log(count);
+  }
+
+  const res = ()=>{
+    setCount(count-1)
+    console.log(count);
+  }
+
   return (
     <div
       id="seller_main"
-      className="flex items-center justify-center bg-[#EFDEFF]"
+      className="flex items-center justify-center align-middle h-screen bg-primaryI font-poppins leading-8"
       onSubmit={() => alert(`Submited thing: ${form.email}`)}
     >
       <div
         id="seller_container"
-        className="block items-center p-10  border-solid border-[2.5px] rounded-xl border-[#EFDEFF] bg-[#ffffff]"
+        className="block items-center p-10  border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff]"
       >
         {count === 1 ? (
           <div>
@@ -39,28 +53,31 @@ const NewSellerForm = () => {
 
             <p className="text-xl text-normal text-[#161616]"> CUIT </p>
             <div>
-              <input
+              <Input                
                 placeholder="xx-xxxxxxx-x"
                 onChange={updateForm}
                 name="cuit"
-                value={form.cuit}
-              />
+                value={form.cuit}>
+              </Input>
             </div>
             <br />
 
             <p className="text-xl text-normal text-[#161616]">
               {" "}
-              Domicilio de facturacion{" "}
+              Domicilio de facturacion
+              {" "}
             </p>
 
             <div className="flex">
+
               <div className="mr-10">
                 <p className="text-sm text-normal text-[#161616]">
                   {" "}
-                  Direccion{" "}
+                  Direccion
+                  {" "}
                 </p>
                 <div>
-                  <input
+                  <Input
                     placeholder="address"
                     onChange={updateForm}
                     name="direccion"
@@ -69,10 +86,14 @@ const NewSellerForm = () => {
                 </div>
               </div>
 
-              <div>
-                <p className="text-l text-normal text-[#161616]"> CP </p>
+              <div className="mr-10">
+                <p className="text-sm text-normal text-[#161616]">
+                  {" "}
+                  CP
+                  {" "}
+                </p>
                 <div>
-                  <input
+                  <Input
                     placeholder="xxxx"
                     onChange={updateForm}
                     name="cp"
@@ -80,15 +101,17 @@ const NewSellerForm = () => {
                   />
                 </div>
               </div>
+
             </div>
 
             <br />
             <p className="text-xl text-normal text-[#161616]">
               {" "}
-              Mail de contacto{" "}
+              Mail de contacto
+              {" "}
             </p>
             <div>
-              <input
+              <Input
                 placeholder="empresa@mail"
                 onChange={updateForm}
                 name="email"
@@ -99,7 +122,7 @@ const NewSellerForm = () => {
             <br />
             <p className="text-xl text-normal text-[#161616]"> Telefono </p>
             <div>
-              <input
+              <Input
                 type="tel"
                 pattern="[0-9] {5}"
                 placeholder="xx-xxx-xx-xxxxxxx"
@@ -120,8 +143,9 @@ const NewSellerForm = () => {
 
             <p className="text-xl text-normal text-[#161616]"> CVU </p>
             <div>
-              <input
-                type="number"
+
+              {/* Validate number type only */}
+              <Input
                 placeholder="xxx-xxxx-xxxx"
                 min={0}
                 onChange={updateForm}
@@ -196,15 +220,45 @@ const NewSellerForm = () => {
           </div>
         ) : null}
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center">  
+          {/* if count is equal to 0, do not show "back" btn */}
           {count === 3 ? (
-            <button className="p-4 rounded-lg font-medium bg-[#ffffff]  text-[#8B11EF] border-2 border-[#8B11EF]">
-            Cargar otra empresa
-            </button>
+            <Link to="/AdminDashboard">
+              <button
+              className="p-4 rounded-lg font-medium bg-[#ffffff]  text-[#8B11EF] border-2 border-[#8B11EF]">
+              Cargar otra empresa
+              </button>
+            </Link>
           ) : (
-            <button className="p-4 rounded-lg bg-[#8B11EF] text-[#ffffff] ">
+            <>
+            <Button
+            onClick={()=>sum()}
+            type="default"
+            size="large"
+            className="mt-7"
+            style={{
+              background: "#8B11EF",
+              color: "#ffffff",
+              borderRadius: 7,
+            }}
+            >
               {count === 1 ? "siguiente" : "generar usuario"}
-            </button>
+            </Button>
+
+            <Button
+            onClick={()=>res()}
+            type="default"
+            size="large"
+            className="mt-7 ml-5"
+            style={{
+              background: "#ffffff",
+              borderRadius: 7,
+            }}
+            >
+              atras
+            </Button>
+
+            </>
           )}
         </div>
       </div>
