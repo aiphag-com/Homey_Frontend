@@ -8,10 +8,6 @@ const AdminDashboard = () => {
             <div className="grid grid-cols-2 gap-4 font-poppins ">
 
                   <AdminDashboardCard />
-                  <AdminDashboardCard />
-                  <AdminDashboardCard />
-                  <AdminDashboardCard />
-                  <AdminDashboardCard />
 
             </div>
         </>
