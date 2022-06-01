@@ -31,21 +31,21 @@ export const getBase64 = (file) =>
       key: '1',
       name: "Cargar modelo 3D",
       description: "Cargar a la plataforma un modelo 3D ",
-      link: '/NewSellerForm'
+      link: '/NewProductPage'
     },
     {
       id: 2,
       key: 2,
       name: "Solicitudes",
       description: "Ver solicitudes de fotogrametría y evaluar modelos 3D",
-      link: '/SellerManagement'
+      link: '/ModelsRequest'
     },
     {
       id: 3,
       key: 3,
       name: "Nueva empresa",
       description: "Agregar nuevo usuario vendedor",
-      link: '/SellerManagement'
+      link: '/NewSellerForm'
     },
     {
       id: 4,
@@ -59,6 +59,6 @@ export const getBase64 = (file) =>
       key: 5,
       name: "Métricas",
       description: "Acceso a Google Analytics",
-      link: '/SellerManagement'
+      link: '/Analytics'
     },
     ]

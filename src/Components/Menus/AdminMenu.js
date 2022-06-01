@@ -36,27 +36,27 @@ const data = [
   },
   {
     key: '3',
-    link: '/SellerManagement'
+    link: '/ModelsRequest'
   },
   {
     key: '4',
-    link: '/SellerManagement'
+    link: '/ModelsPaused'
   },
   {
     key: '5',
-    link: '/SellerManagement'
+    link: '/ModelsHabilited'
   },
   {
     key: '6',
-    link: '/SellerManagement'
+    link: '/ModelsRequest'
   },
   {
     key: '7',
-    link: '/SellerManagement'
+    link: '/Analytics'
   },
   {
     key: '8',
-    link: '/SellerManagement'
+    link: '/Analytics'
   }
   ]
 
