@@ -9,6 +9,7 @@ import NewProductPage from './Pages/SellerPages/NewProductPage';
 import SellerManagementPage from './Pages/AdminPages/SellerManagementPage';
 import SellerDashboardPage from './Pages/SellerPages/SellerDashboardPage';
 import NewSellerForm from './Components/Forms/NewSellerForm';
+import ModelInProgress from './Pages/AdminPages/ModelsInProcessPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +23,7 @@ root.render(
       <Route path="/NewProductPage" element={<NewProductPage />} />
       <Route path="/SellerDashboard" element={<SellerDashboardPage />} />
       <Route path="/NewSellerForm" element={<NewSellerForm />} />
+      <Route path="/ModelInProgress" element={<ModelInProgress />} />
       </Routes>
     </Router>
 );

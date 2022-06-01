@@ -1,99 +1,33 @@
-import { Table } from "antd";
 import React from "react";
-import AdminDashboardCard from "./AdminDashboardCard";
-
-const columns = [
-  {
-    title: "Usuario",
-    dataIndex: "user_name",
-    key: "user_Name",
-  },
-  {
-    title: "Producto",
-    dataIndex: "product_name",
-    key: "product_Name",
-  },
-  {
-    title: "Action 1",
-    dataIndex: "action_one",
-    key: "action_One",
-  },
-  {
-    title: "Action 2",
-    dataIndex: "action_open",
-    key: "action_Open",
-  },
-  {
-    title: "Date",
-    dataIndex: "date",
-    key: "date",
-  },
-];
-
-const dataSource = [
-  {
-    key: "1",
-    user_name: "Empresa 1",
-    product_name: "Mueble 1",
-    action_one: "Placeholder btn",
-    action_open: "Placeholder btn",
-    date: '2014-12-24 23:12:00'
-  },
-  {
-    key: "2",
-    user_name: "Empresa 2",
-    product_name: "Mueble 2",
-    action_one: "Placeholder btn",
-    action_open: "Placeholder btn",
-    date: '2014-12-24 23:12:00'
-  },
-  {
-    key: "1",
-    user_name: "Empresa 1",
-    product_name: "Mueble 1",
-    action_one: "Placeholder btn",
-    action_open: "Placeholder btn",
-    date: '2014-12-24 23:12:00'
-  },
-  {
-    key: "1",
-    user_name: "Empresa 1",
-    product_name: "Mueble 1",
-    action_one: "Placeholder btn",
-    action_open: "Placeholder btn",
-    date: '2014-12-24 23:12:00'
-  },
-  {
-    key: "1",
-    user_name: "Empresa 1",
-    product_name: "Mueble 1",
-    action_one: "Placeholder btn",
-    action_open: "Placeholder btn",
-    date: '2014-12-24 23:12:00'
-  },
-];
-
-// aca tiene que ser un .map que solo se use una tarjeta y se pase la info por props
+import Header from '../Base/Header';
 const AdminDashboard = () => {
-  return (
-    <>
-      <div className="grid grid-cols-2 gap-4 font-poppins font-bold">
-        {/* <AdminDashboardCard /> */}
-      </div>
-
-      <div className="flex flex-col font-poppins">
-        <p className="font-bold text-2xl mb-[90px]">Pulicaciones Pausadas</p>
-        <Table
-          columns={columns}
-          dataSource={dataSource}
-          scroll={{
-            x: 750,
-            y: 200,
-          }}
-        ></Table>
-      </div>
-    </>
-  );
-};
-
+    return (
+        <>
+            <div className="grid grid-cols-4 gap-x-56 justify-items-center font-poppins">
+                <div className="col-span-2">
+                    <div className="bg-[#C4C4C4] w-[22rem] h-[15rem] border-solid border-[6px] border-[#C84444]">
+                        <p className="text-[#C84444] p-4 text-3xl">Renders</p>
+                        <div className="m-5 flex flex-col items-start">
+                            <button className="text-[#C84444] bg-[#FFFFFF] p-1">Ver solicitudes</button>
+                            <button className="text-[#C84444] border-[#C84444] border mt-2 p-1">Cargar nuevos render</button>
+                        </div>
+                    </div>
+                    <div className="bg-[#C4C4C4] mt-4 w-[22rem] h-[15rem] border-solid border-[6px] border-[#C84444]">
+                        <p className="text-[#C84444] p-4 text-3xl">Gestión Vendedores</p>
+                        <div className="m-5 flex flex-col items-start">
+                            <button className="text-[#C84444] bg-[#FFFFFF] p-1">Ver todos</button>
+                            <button className="text-[#C84444] border-[#C84444] border mt-2 p-1 ">Cargar nueva empresa</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-[#C4C4C4] w-[35rem] h-[31rem] border-solid border-[6px] border-[#C84444]">
+                    <div className="m-2">
+                        <p className="text-[#C84444] text-3xl -mb-0.5">Métricas</p>
+                        <button className="text-[#C84444] bg-white mt-2 bg-[#FFFFFF] p-1">Ingresar</button>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
 export default AdminDashboard;
