@@ -2,8 +2,7 @@ import React from "react";
 import image from '../../Assets/PlaceHolderCardAdmin.png';
 import {LocalizedModal} from '../Base/Modal'
 
-// aca tiene que venir con props del componente padre
-const AdminDashboardCard = () => {
+const AdminDashboardCard = (props) => {
 
   return (
     <>
