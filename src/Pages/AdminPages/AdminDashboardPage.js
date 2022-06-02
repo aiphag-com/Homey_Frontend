@@ -4,7 +4,6 @@ import HeaderAdm from "../../Components/Base/HeaderAdmin";
 import AdminMenu from "../../Components/Menus/AdminMenu";
 
 const AdminDashboardPage = () => {
-
   return (
     <>
       <HeaderAdm />
@@ -14,6 +13,6 @@ const AdminDashboardPage = () => {
       </div>
     </>
   );
-}
+};
 
 export default AdminDashboardPage;

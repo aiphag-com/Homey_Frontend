@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../../Components/Base/Header";
+import HeaderAdmin from "../../../Components/Base/HeaderAdmin";
 
 const ModelsRequest = () => {
 
   return (
     <>
-      <Header />
+      <HeaderAdmin />
       <div className="flex"> Solicitudes de Modelos </div>
     </>
   );

@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../../Components/Base/Header";
+import HeaderAdmin from "../../../Components/Base/HeaderAdmin";
 
 const ModelPaused = () => {
 
   return (
     <>
-      <Header />
+      <HeaderAdmin />
       <div className="flex"> Modelos Pausados </div>
     </>
   );
