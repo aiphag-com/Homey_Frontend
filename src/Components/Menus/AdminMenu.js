@@ -33,9 +33,9 @@ const items = [
       null,
       [
         getItem("Solicitudes", "3"),
-        getItem("Publicaciones pausadas", "4"),
-        getItem("Modelos 3D habilitados", "5"),
-        getItem("Registro de solicitudes", "6"),
+        getItem("En proceso", "4"),
+        getItem("Modelos 3D", "5"),
+        getItem("Historial", "6"),
       ],
       "group"
     ),
@@ -74,7 +74,7 @@ const data = [
   },
   {
     key: "6",
-    link: "/ModelsRequest",
+    link: "/ModelsHistory",
   },
   {
     key: "7",

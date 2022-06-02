@@ -1,19 +1,19 @@
 import React from "react";
-import RequestModel from "../../../Components/Admin/ModelsThree/RequestModel";
+import HistoryModel from "../../../Components/Admin/ModelsThree/HistoryModel";
 import HeaderAdmin from "../../../Components/Base/HeaderAdmin";
 import AdminMenu from "../../../Components/Menus/AdminMenu";
 
-const ModelsRequest = () => {
+const ModelsHistory = () => {
 
   return (
     <>
       <HeaderAdmin />
       <div className="flex">
-        <AdminMenu/>
-        <RequestModel />
-      </div>
+        <AdminMenu />
+        <HistoryModel />
+        </div>
     </>
   );
 }
 
-export default ModelsRequest;
+export default ModelsHistory;

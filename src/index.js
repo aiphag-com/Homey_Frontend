@@ -14,6 +14,7 @@ import Analytics from './Pages/AdminPages/Analytics';
 import ModelPaused from './Pages/AdminPages/Models/ModelsPaused';
 import ModelsHabilited from './Pages/AdminPages/Models/ModelsHabilited';
 import ModelsRequest from './Pages/AdminPages/Models/ModelsRequests';
+import ModelsHistory from './Pages/AdminPages/Models/ModelsHistory';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +31,7 @@ root.render(
       <Route path="/ModelsPaused" element={<ModelPaused />} />
       <Route path="/ModelsRequest" element={<ModelsRequest />} />
       <Route path="/ModelsHabilited" element={<ModelsHabilited />} />
+      <Route path="/ModelsHistory" element={<ModelsHistory />} />
       </Routes>
     </Router>
 );

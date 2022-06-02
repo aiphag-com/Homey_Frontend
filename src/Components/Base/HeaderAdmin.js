@@ -9,7 +9,6 @@ const Header = () => {
         title={<img className="" src={Logo} alt="" />}
         extra={
           <div className="">
-            {" "}
             <Button
             style={{
                 background: "#22075E",
@@ -18,7 +17,7 @@ const Header = () => {
             }}
             key="3">
               Cerrar sesión
-            </Button>{" "}
+            </Button>
           </div>
         }
       ></PageHeader>
