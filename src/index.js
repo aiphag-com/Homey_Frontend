@@ -15,7 +15,6 @@ import ModelPaused from './Pages/AdminPages/Models/ModelsPaused';
 import ModelsHabilited from './Pages/AdminPages/Models/ModelsHabilited';
 import ModelsRequest from './Pages/AdminPages/Models/ModelsRequests';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
