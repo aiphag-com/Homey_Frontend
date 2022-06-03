@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../Components/Base/Header";
+import HeaderAdm from "../../Components/Base/HeaderAdmin";
 
 const Analytics = () => {
 
   return (
     <>
-      <Header />
+      <HeaderAdm />
       <div className="flex"> Aca vienen las Metricas! </div>
     </>
   );

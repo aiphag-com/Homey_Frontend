@@ -76,7 +76,7 @@ const NewSellerForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center align-middle h-screen bg-primaryI font-poppins leading-8 h-full w-full">
+    <div className="flex items-center justify-center align-middle h-screen bg-primaryI font-poppins leading-8 w-full">
       <div className="block items-center p-10  border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff]">
         {count === 1 ? (
           <div>
