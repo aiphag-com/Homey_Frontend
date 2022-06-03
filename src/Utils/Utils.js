@@ -31,7 +31,7 @@ export const getBase64 = (file) =>
       key: '1',
       name: "Cargar modelo 3D",
       description: "Cargar a la plataforma un modelo 3D ",
-      link: '/NewProductPage'
+      link: '/ModelsRequest'
     },
     {
       id: 2,

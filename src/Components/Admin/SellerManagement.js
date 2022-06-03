@@ -1,6 +1,12 @@
 import React from "react";
-import { Table, Tag, Input } from "antd";
+import { Table, Tag, Input, Checkbox } from "antd";
 const { Search } = Input;
+
+const onChange = (checkedValues) => {
+  console.log("checked = ", checkedValues);
+};
+
+const plainOptions = ["Zona Geografica", "Antiguedad", "Trimestre", "Cant. de ventas"];
 
 const columns = [
   {
@@ -93,13 +99,14 @@ const SellerManagement = () => {
         />
       </div>
 
-      <div id="tablas" className=" ">
+      <div id="tablas" className="flex-col mt-4">
+        <Checkbox.Group options={plainOptions} onChange={onChange} />
         <Table
-          className="mb-14 w-full font-poppins p-2"
+          className="mb-14 w-full font-poppins pt-8"
           columns={columns}
           dataSource={data}
           size={"small"}
-          pagination={{position:["bottomCenter"]}}
+          pagination={{ position: ["bottomCenter"] }}
           bordered
         />
       </div>
