@@ -1,7 +1,6 @@
 //ENGINE
 import React, { useState } from "react";
 import axios from "axios";
-//import LogoHomie from "../Assets/LogoHomey.png";
 import LogoHomie from "../Assets/LogoHomey_1.png";
 import { Button, Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
@@ -87,8 +86,9 @@ const Login = () => {
                 }}
               />
             </Space>
-            <p className="text-sm text-[#FE5500] mt-4">
-              PLACEHOLDER ERROR
+            
+            <p name="errorText" className="text-sm text-[#FE5500] mt-4">
+              {/* PLACEHOLDER ERROR */}
             </p>
             <p className="text-sm text-[#071C65] mt-8">
               ¿Olvidaste tu clave? Puedes&nbsp;
