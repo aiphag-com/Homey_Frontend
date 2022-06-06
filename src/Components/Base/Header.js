@@ -1,13 +1,13 @@
 import { Button, PageHeader } from "antd";
-import Logo from "../../Assets/LogoHomey.png";
+import Logo from "../../Assets/LogoHomeySeller.png";
 
 
 const Header = () => {
   return (
-    <div className="site-page-header-ghost-wrapper">
+    <div className="site-page-header-ghost-wrapper mb-8 border-b-2 border-[#D3ADF7]">
       <PageHeader
         ghost
-        title={<img className="" src={Logo} alt="" />}
+        title={<img className=" h-[70px]" src={Logo} alt=""/>}
         extra={
           <div className="">
             <Button key="3">Cerrar sesión</Button>
