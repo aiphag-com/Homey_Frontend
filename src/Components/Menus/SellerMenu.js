@@ -12,17 +12,20 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  getItem('Ventas', 'sub1', <MailOutlined />, [
-    getItem('', 'g1', null, [getItem('Coordinar envios', '1'), getItem('Historial de ventas', '2')], 'group'),
+  getItem('Mi negocio', 'sub1', <MailOutlined />, [
+    getItem('', 'g1', null, [getItem('Metricas', '1')], 'group'),
   ]),
-  getItem('Productos', 'sub2', <MailOutlined />, [
-    getItem('', 'g2', null, [getItem('Cargar nuevo producto', '3'), getItem('Pausados', '4')], 'group'),
+  getItem('Ventas', 'sub2', <MailOutlined />, [
+    getItem('', 'g2', null, [getItem('Acordar entregas', '2'), getItem('Historial de ventas', '3')], 'group'),
   ]),
-  getItem('Preguntas', 'sub3', <MailOutlined />, [
-    getItem('', 'g3', null, [getItem('Sin responder', '5')], 'group'),
+  getItem('Productos', 'sub3', <MailOutlined />, [
+    getItem('', 'g3', null, [getItem('Cargar nuevo producto', '4'), getItem('catalogo', '5')], 'group'),
   ]),
-  getItem('Opciones', 'sub4', <MailOutlined />, [
-    getItem('', 'g4', null, [getItem('Editar perfil empresa', '6'), getItem('Administrar notificaciones', '7'), getItem('Contraseña y seguridad', '8')], 'group'),
+  getItem('Preguntas', 'sub4', <MailOutlined />, [
+    getItem('', 'g4', null, [getItem('Sin responder', '5')], 'group'),
+  ]),
+  getItem('Configuracion', 'sub5', <MailOutlined />, [
+    getItem('', 'g5', null, [getItem('Editar perfil empresa', '6'), getItem('Administrar notificaciones', '7'), getItem('Contraseña y seguridad', '8')], 'group'),
   ]),
 ];
 
