@@ -78,11 +78,11 @@ const data = [
   },
   {
     key: "7",
-    link: "/Analytics",
+    link: "/BuyerAnalytics",
   },
   {
     key: "8",
-    link: "/Analytics",
+    link: "/SellerAnalytics",
   },
 ];
 

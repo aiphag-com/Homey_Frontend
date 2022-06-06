@@ -9,7 +9,9 @@ import NewProductPage from './Pages/SellerPages/NewProductPage';
 import SellerManagementPage from './Pages/AdminPages/SellerManagementPage';
 import SellerDashboardPage from './Pages/SellerPages/SellerDashboardPage';
 import NewSellerForm from './Components/Forms/NewSellerForm';
-import Analytics from './Pages/AdminPages/Analytics';
+//Analytics
+import BuyerAnalytics from './Pages/AdminPages/BuyerAnalytics';
+import SellerAnalytics from './Pages/AdminPages/SellerAnalytics';
 //MODELS
 import ModelPaused from './Pages/AdminPages/Models/ModelsPaused';
 import ModelsHabilited from './Pages/AdminPages/Models/ModelsHabilited';
@@ -27,7 +29,10 @@ root.render(
       <Route path="/NewProductPage" element={<NewProductPage />} />
       <Route path="/SellerDashboard" element={<SellerDashboardPage />} />
       <Route path="/NewSellerForm" element={<NewSellerForm />} />
-      <Route path="/Analytics" element={<Analytics />} />
+
+      <Route path="/BuyerAnalytics" element={<BuyerAnalytics />} />
+      <Route path="/SellerAnalytics" element={<SellerAnalytics />} />
+
       <Route path="/ModelsPaused" element={<ModelPaused />} />
       <Route path="/ModelsRequest" element={<ModelsRequest />} />
       <Route path="/ModelsHabilited" element={<ModelsHabilited />} />
