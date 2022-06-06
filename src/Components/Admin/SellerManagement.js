@@ -1,13 +1,19 @@
 import React from "react";
-import { Pagination, Table, Tag, Input } from "antd";
+import { Table, Tag, Input, Checkbox } from "antd";
 const { Search } = Input;
+
+const onChange = (checkedValues) => {
+  console.log("checked = ", checkedValues);
+};
+
+const plainOptions = ["Zona Geografica", "Antiguedad", "Trimestre", "Cant. de ventas"];
 
 const columns = [
   {
     title: "Nombre Empresa",
     dataIndex: "name",
     key: "name",
-    render: (text) => <a>{text}</a>,
+    render: (text) => <a href="/sellermanagement">{text}</a>,
   },
   {
     title: "Zona",
@@ -75,39 +81,36 @@ const data = [
   },
 ];
 
-
 const onSearch = (value) => console.log(value);
 
 const SellerManagement = () => {
   return (
-      <div>
-
-        <div id="busqueda" className="flex p-4 ">
-          <Search
-            className="bg-[#fff1] font-poppins "
-            placeholder="buscar vendedor"
-            onSearch={onSearch}
-            bordered
-            size="large"
-            style={{
-              //borderColor: "#000000",
-              width: '50%',
-            }}
-          />
-        </div>
-
-        <div id="tablas" className="flex flex-col items-center align-middle">
-          <Table 
-          className="mb-14 w-full font-poppins p-2" 
-          columns={columns} dataSource={data}
-          size={'big'} 
-          pagination={false}
+    <div className="flex flex-col justify-center font-poppins w-screen">
+      <div id="busqueda" className="p-4 ">
+        <Search
+          className="bg-[#fff1] font-poppins "
+          placeholder="buscar vendedor"
+          onSearch={onSearch}
           bordered
-          />
-          <Pagination defaultCurrent={1} total={30} />
-        </div>
-
+          size="large"
+          style={{
+            width: "20%",
+          }}
+        />
       </div>
+
+      <div id="tablas" className="flex-col mt-4">
+        <Checkbox.Group options={plainOptions} onChange={onChange} />
+        <Table
+          className="mb-14 w-full font-poppins pt-8"
+          columns={columns}
+          dataSource={data}
+          size={"small"}
+          pagination={{ position: ["bottomCenter"] }}
+          bordered
+        />
+      </div>
+    </div>
   );
 };
 
