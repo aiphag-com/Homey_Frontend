@@ -1,5 +1,12 @@
-import { MailOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
+import {
+  ShopOutlined,
+  TagOutlined,
+  SettingOutlined,
+  InboxOutlined,
+  ShoppingOutlined,
+  PlusOutlined
+} from "@ant-design/icons";
+import { Menu } from "antd";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -12,36 +19,54 @@ function getItem(label, key, icon, children, type) {
 }
 
 const items = [
-  getItem('Mi negocio', 'sub1', <MailOutlined />, [
-    getItem('', 'g1', null, [getItem('Metricas', '1')], 'group'),
+  getItem("Mi negocio", "sub1", <ShopOutlined />, [
+    getItem("", "g1", null, [getItem("Metricas", "1")], "group"),
   ]),
-  getItem('Ventas', 'sub2', <MailOutlined />, [
-    getItem('', 'g2', null, [getItem('Acordar entregas', '2'), getItem('Historial de ventas', '3')], 'group'),
+  getItem("Ventas", "sub2", <TagOutlined />, [
+    getItem(
+      "",
+      "g2",
+      null,
+      [getItem("Acordar entregas", "2"), getItem("Historial de ventas", "3")],
+      "group"
+    ),
   ]),
-  getItem('Productos', 'sub3', <MailOutlined />, [
-    getItem('', 'g3', null, [getItem('Cargar nuevo producto', '4'), getItem('catalogo', '5')], 'group'),
+  getItem("Productos", "sub3", <ShoppingOutlined />, [
+    getItem(
+      "",
+      "g3",
+      null,
+      [getItem("Cargar nuevo producto", "4", <PlusOutlined/>), getItem("Catalogo", "5")],
+      "group"
+    ),
   ]),
-  getItem('Preguntas', 'sub4', <MailOutlined />, [
-    getItem('', 'g4', null, [getItem('Sin responder', '5')], 'group'),
-  ]),
-  getItem('Configuracion', 'sub5', <MailOutlined />, [
-    getItem('', 'g5', null, [getItem('Editar perfil empresa', '6'), getItem('Administrar notificaciones', '7'), getItem('Contraseña y seguridad', '8')], 'group'),
+  getItem("Preguntas", "6", <InboxOutlined />),
+
+  getItem("Configuracion", "sub5", <SettingOutlined />, [
+    getItem(
+      "",
+      "g5",
+      null,
+      [getItem("Editar perfil", "7"), getItem("Seguridad y clave", "8")],
+      "group"
+    ),
   ]),
 ];
 
 const SellerMenu = () => {
   const onClick = (e) => {
-    console.log('click ', e);
+    console.log("click ", e);
   };
 
   return (
     <Menu
       onClick={onClick}
+      className="font-poppins"
       style={{
         width: 256,
       }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
+      defaultSelectedKeys={["1"]}
+      defaultOpenKeys={["sub1"]}
       mode="inline"
       items={items}
     />

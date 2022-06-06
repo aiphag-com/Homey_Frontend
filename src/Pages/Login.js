@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 //import LogoHomie from "../Assets/LogoHomey.png";
-import LogoHomie from "../Assets/LogoHomey_1.png";
+import LogoHomie from "../Assets/LogoHomeySeller.png";
 import { Button, Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
