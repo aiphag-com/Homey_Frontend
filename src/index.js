@@ -16,6 +16,7 @@ import ModelsHabilited from './Pages/AdminPages/Models/ModelsHabilited';
 import ModelsRequest from './Pages/AdminPages/Models/ModelsRequests';
 import ModelsHistory from './Pages/AdminPages/Models/ModelsHistory';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
@@ -32,6 +33,7 @@ root.render(
       <Route path="/ModelsRequest" element={<ModelsRequest />} />
       <Route path="/ModelsHabilited" element={<ModelsHabilited />} />
       <Route path="/ModelsHistory" element={<ModelsHistory />} />
+      <Route path="/CataloguePage" element={<SellerDashboardPage />} />
       </Routes>
     </Router>
 );
