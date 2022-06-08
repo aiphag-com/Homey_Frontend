@@ -80,7 +80,7 @@ const NewSellerForm = () => {
       <div className="block items-center p-10  border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff]">
         {count === 1 ? (
           <div>
-            <p className="text-xl text-semibold text-[#838383]">
+            <p className="text-xl text-[#838383]">
               Crear una cuenta de empresa
             </p>
             <p className="text-4xl font-bold">1. Carga datos de la empresa</p>
