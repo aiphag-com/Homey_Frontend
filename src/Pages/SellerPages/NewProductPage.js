@@ -24,12 +24,11 @@ const NewProductPage = () => {
         <SellerMenu form={form}/>
         <div className="flex justify-center items-center font-poppins h-100 w-screen">
 
-          
           {count === 1 ? (
             <NewProductForm setCount={setCount} setForm={setForm} form={form} />
           ) : null
           }
-
+          
           {count === 2 ? (
             <BoxNewProduct setCount={setCount} />
           ) : null
@@ -39,6 +38,7 @@ const NewProductPage = () => {
             <BoxSucessProduct setCount={setCount}/>
           ) : null
           }
+          
         </div>
       </div>
     </>
