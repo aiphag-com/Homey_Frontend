@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import { Button, Input, Upload, Radio } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { UploadOutlined } from "@ant-design/icons";
+import { category } from "../../Utils/Utils";
 
-const NewProductForm = () => {
-  const [form, setForm] = useState({
-    cuit: "",
-    direccion: "",
-    cp: "",
-    email: "",
-    telefono: "",
-    cvu: "",
-  });
+const NewProductForm = ({setCount, setForm, form}) => {
+
+  const [selected, setCategory] = useState();
 
   const updateForm = (e) => {
     setForm({
@@ -20,15 +15,21 @@ const NewProductForm = () => {
     });
   };
 
+  const categorySelect = (e) => {
+    setCategory(e.target.id);
+  }
+
+  console.log(selected);
+
   return (
     <div
       id="seller_main"
-      className="flex items-center justify-center align-middle h-screen bg-primaryI font-poppins leading-8 w-full"
+      className="flex justify-center bg-[#ffffff] font-poppins"
       onSubmit={() => alert(`Submited thing: ${form.email}`)}
     >
       <div
         id="seller_container"
-        className="block items-center p-10  border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff]"
+        className="p-10 border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff] v-screen"
       >
         {/*STEPS*/}
         <div className="flex justify-center">
@@ -53,9 +54,10 @@ const NewProductForm = () => {
           <div className="mb-8" />
           <p className="text-sm mb-3"> Escribe Nombre del producto </p>
           <Input
+            name="nombre"
+            value={form.nombre}
+            onChange={updateForm}
             placeholder="nombre del producto..."
-            onClick={updateForm}
-            value={form.direccion}
           />
         </div>
         {/* fin nombre del producto */}
@@ -64,12 +66,12 @@ const NewProductForm = () => {
         <div className="flex flex-col mb-8">
           <div className="mb-8" />
           <p className="text-sm"> PRECIO </p>
-          <Radio style={{ marginBottom:"12px" }}> Precio por unidad </Radio>
+          <Radio style={{ marginBottom: "12px" }}> Precio por unidad </Radio>
           <Input
             placeholder="precio...."
             onClick={updateForm}
             value={form.direccion}
-            style={{ marginBottom:"12px", width: "50%" }}
+            style={{ marginBottom: "12px", width: "50%" }}
           />
           <Radio> Solicitar una cotizacion </Radio>
         </div>
@@ -90,35 +92,15 @@ const NewProductForm = () => {
           <p> A que categorias esta relacionado? </p>
 
           <div className="grid grid-cols-4 m-4 gap-2">
-            {/* Efectos on Hover */}
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Living Room{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Dormitorio{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Cocina{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Mesas{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Sillas{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Bancos{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Escritorio{" "}
-            </Button>
+            {category.map((category) => (
+              <button
+              key={category.key}
+              id={category.id}
+              onClick={categorySelect}
+              className={`${selected === category.id ? 'bg-error' : 'bg-primaryI'}`}
+              >{category.name}</button>
+            ))}
+            
           </div>
         </div>
         {/* fin categorias */}
@@ -126,26 +108,17 @@ const NewProductForm = () => {
         {/* categorias dos */}
         <div>
           <div className="mb-8" />
-          <p> A que categorias esta relacionado? </p>
+          <p> Selecciona objetos relacionados para que los compradores puedan encontrar el producto </p>
 
           <div className="grid grid-cols-4 gap-4">
-            {/* Efectos on Hover */}
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent"}}>
-              {" "}
-              Sillas{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Mesas{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Banquetas{" "}
-            </Button>
-            <Button type="primary" shape="round" style={{ background: "#F5F5F5", borderColor: "transparent" }}>
-              {" "}
-              Vajilleras{" "}
-            </Button>
+          {category[selected]?.subCategory.map((category) => (
+              <button
+              key={category.key}
+              id={category.id}
+              onClick={categorySelect}
+              className={`${selected === category.id ? 'bg-error' : 'bg-primaryI'}`}
+              >{category.name}</button>
+            ))}
           </div>
         </div>
         {/* fin categorias dos */}
@@ -172,23 +145,27 @@ const NewProductForm = () => {
               style={{
                 borderColor: "#C41D7F",
                 color: "#C41D7F",
-                borderRadius:7
+                borderRadius: 7,
               }}
-              icon={<UploadOutlined />}>Adjuntar Archivos</Button>
+              icon={<UploadOutlined />}
+            >
+              Adjuntar Archivos
+            </Button>
           </Upload>
         </div>
         {/* fin subir imagen */}
         <div className="mt-10">
           <Button
+            onClick={()=>setCount(2)}
             style={{
               background: "#9254DE",
-              color:"#ffffff",
-              borderColor: "transparent"
+              color: "#ffffff",
+              borderColor: "transparent",
             }}
-          >SiGUIENTE</Button>
+          >
+            SIGUIENTE
+          </Button>
         </div>
-
-
       </div>
     </div>
   );

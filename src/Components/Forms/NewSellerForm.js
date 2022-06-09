@@ -23,9 +23,7 @@ const NewSellerForm = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-
-
+  
   const sum = () => {
     setCount(count + 1)
   }
