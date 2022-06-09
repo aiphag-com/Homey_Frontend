@@ -2,7 +2,7 @@ import React from "react";
 import placeHolderImage from "../../Assets/placeHolderImage.png";
 import { Button, Radio } from "antd";
 
-const BoxNewProduct = () => {
+const BoxNewProduct = ({setCount}) => {
   return (
     <div className="flex items-center justify-center h-screen font-poppins gap-16">
 
@@ -21,6 +21,7 @@ const BoxNewProduct = () => {
             <Button
               type="primary"
               size="large"
+              onClick={()=>setCount(3)}
               style={{
                 background: "#ACACAC",
                 marginBottom: "24px",

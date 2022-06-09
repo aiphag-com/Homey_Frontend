@@ -3,6 +3,7 @@ import BoxNewProduct from "../../Components/Forms/BoxNewProduct";
 import NewProductForm from "../../Components/Forms/NewProductForm";
 import Header from "../../Components/Base/Header";
 import SellerMenu from "../../Components/Menus/SellerMenu"
+import BoxSucessProduct from "../../Components/Forms/BoxSucessProduct";
 
 const NewProductPage = () => {
   const [count, setCount] = useState(1);
@@ -30,12 +31,12 @@ const NewProductPage = () => {
           }
 
           {count === 2 ? (
-          <BoxNewProduct />
+            <BoxNewProduct setCount={setCount} />
           ) : null
           }
 
           {count === 3 ? (
-          <p>OCOTE</p>
+            <BoxSucessProduct setCount={setCount}/>
           ) : null
           }
         </div>

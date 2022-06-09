@@ -110,7 +110,7 @@ const NewProductForm = ({setCount, setForm, form}) => {
           <div className="mb-8" />
           <p> Selecciona objetos relacionados para que los compradores puedan encontrar el producto </p>
 
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 gap-2">
           {category[selected]?.subCategory.map((category) => (
               <button
               key={category.key}
