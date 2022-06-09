@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Button, Input, Upload, Radio } from "antd";
+import { Button, Input, Upload, Radio, Steps } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { UploadOutlined } from "@ant-design/icons";
 import { category } from "../../Utils/Utils";
 
-const NewProductForm = ({setCount, setForm, form}) => {
-
+const NewProductForm = ({ setCount, setForm, form }) => {
   const [selected, setCategory] = useState();
+
+  const {Step} = Steps;
+
 
   const updateForm = (e) => {
     setForm({
@@ -17,7 +19,7 @@ const NewProductForm = ({setCount, setForm, form}) => {
 
   const categorySelect = (e) => {
     setCategory(e.target.id);
-  }
+  };
 
   console.log(selected);
 
@@ -32,8 +34,12 @@ const NewProductForm = ({setCount, setForm, form}) => {
         className="p-10 border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff] v-screen"
       >
         {/*STEPS*/}
-        <div className="flex justify-center">
-          <p>Steps!</p>
+        <div className="flex justify-center mb-6">
+          <Steps current={0}>
+            <Step title="Paso 1" description="Carga datos del producto"/>
+            <Step title="Paso 2" description="Opciones de Realidad Aumentada"/>
+            <Step title="Paso 3" description="Procesando"/>
+          </Steps>
         </div>
         {/*FIN STEPS*/}
 
@@ -91,16 +97,22 @@ const NewProductForm = ({setCount, setForm, form}) => {
           <div className="mb-8" />
           <p> A que categorias esta relacionado? </p>
 
-          <div className="grid grid-cols-4 m-4 gap-2">
+          <div className="grid grid-cols-4 m-2 gap-4">
             {category.map((category) => (
               <button
-              key={category.key}
-              id={category.id}
-              onClick={categorySelect}
-              className={`${selected === category.id ? 'bg-error' : 'bg-primaryI'}`}
-              >{category.name}</button>
+                key={category.key}
+                id={category.id}
+                value={category.name}
+                onClick={categorySelect}
+                className={`${
+                  selected === category.id
+                    ? "bg-[#FFD6E7] border-2 rounded-md border-[#9E1068] text-[#9E1068] font-semibold"
+                    : "bg-[#F5F5F5] rounded-md"
+                }`}
+              >
+                {category.name}
+              </button>
             ))}
-            
           </div>
         </div>
         {/* fin categorias */}
@@ -108,16 +120,27 @@ const NewProductForm = ({setCount, setForm, form}) => {
         {/* categorias dos */}
         <div>
           <div className="mb-8" />
-          <p> Selecciona objetos relacionados para que los compradores puedan encontrar el producto </p>
+          <p>
+            {" "}
+            Selecciona objetos relacionados para que los compradores puedan
+            encontrar el producto{" "}
+          </p>
 
           <div className="grid grid-cols-3 gap-2">
-          {category[selected]?.subCategory.map((category) => (
+            {category[selected]?.subCategory.map((category) => (
               <button
-              key={category.key}
-              id={category.id}
-              onClick={categorySelect}
-              className={`${selected === category.id ? 'bg-error' : 'bg-primaryI'}`}
-              >{category.name}</button>
+                key={category.key}
+                id={category.id}
+                name={category[selected]?.subCategory.name}
+                //onClick={subcategorySelect}
+                className={`${
+                  selected === category.id
+                    ? "bg-[#FFD6E7] rounded-md text-[#9E1068]"
+                    : "bg-[#F5F5F5] rounded-md"
+                }`}
+              >
+                {category.name}
+              </button>
             ))}
           </div>
         </div>
@@ -156,11 +179,13 @@ const NewProductForm = ({setCount, setForm, form}) => {
         {/* fin subir imagen */}
         <div className="mt-10">
           <Button
-            onClick={()=>setCount(2)}
+            onClick={() => setCount(2)}
             style={{
               background: "#9254DE",
-              color: "#ffffff",
+              borderWidth: "2px",
+              borderRadius: 7,
               borderColor: "transparent",
+              color: "#ffffff",
             }}
           >
             SIGUIENTE

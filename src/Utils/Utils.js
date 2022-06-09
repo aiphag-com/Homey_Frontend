@@ -71,23 +71,23 @@ export const category = [
     name: "Comedor",
     subCategory: [
       {
-        id: "0",
-        key: "0",
+        id: "8",
+        key: "8",
         name: "Mesas",
       },
       {
-        id: "1",
-        key: "1",
+        id: "9",
+        key: "9",
         name: "Sillas",
       },
       {
-        id: "2",
-        key: "2",
+        id: "10",
+        key: "10",
         name: "Banquetas",
       },
       {
-        id: "3",
-        key: "3",
+        id: "11",
+        key: "11",
         name: "Vajilleros",
       },
     ],
