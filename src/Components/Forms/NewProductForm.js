@@ -6,22 +6,19 @@ import { category } from "../../Utils/Utils";
 
 const NewProductForm = ({ setCount, setForm, form }) => {
   const [selected, setCategory] = useState();
-
   const {Step} = Steps;
 
-
   const updateForm = (e) => {
+    console.log(e.target);
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const categorySelect = (e) => {
+    console.log(e.target);
     setCategory(e.target.id);
   };
 
-  console.log(selected);
+  
 
   return (
     <div
@@ -31,7 +28,7 @@ const NewProductForm = ({ setCount, setForm, form }) => {
     >
       <div
         id="seller_container"
-        className="p-10 border-solid border-[2.5px] rounded-xl border-primaryI bg-[#ffffff] v-screen"
+        className="p-10 rounded-xl bg-[#ffffff] v-screen"
       >
         {/*STEPS*/}
         <div className="flex justify-center mb-6">
@@ -60,8 +57,8 @@ const NewProductForm = ({ setCount, setForm, form }) => {
           <div className="mb-8" />
           <p className="text-sm mb-3"> Escribe Nombre del producto </p>
           <Input
-            name="nombre"
-            value={form.nombre}
+            name="category"
+            value={form.name}
             onChange={updateForm}
             placeholder="nombre del producto..."
           />
@@ -72,14 +69,16 @@ const NewProductForm = ({ setCount, setForm, form }) => {
         <div className="flex flex-col mb-8">
           <div className="mb-8" />
           <p className="text-sm"> PRECIO </p>
-          <Radio style={{ marginBottom: "12px" }}> Precio por unidad </Radio>
-          <Input
-            placeholder="precio...."
-            onClick={updateForm}
-            value={form.direccion}
-            style={{ marginBottom: "12px", width: "50%" }}
-          />
-          <Radio> Solicitar una cotizacion </Radio>
+          <Radio.Group name="hasPrice" onChange={updateForm} value={form.hasPrice} >
+            <Radio value={true} style={{ marginBottom: "12px" }}> Precio por unidad </Radio>
+            <Input
+              name="price"
+              value={form.price}
+              onChange={updateForm}
+              style={{ display: "flex",marginBottom: "12px", width: "50%" }}
+            />
+            <Radio value={false} style={{ marginBottom: "12px" }}> Solicitar una cotizacion </Radio>
+            </Radio.Group>
         </div>
         {/* fin precio */}
 
@@ -88,9 +87,16 @@ const NewProductForm = ({ setCount, setForm, form }) => {
           <div className="mb-8" />
           <p> Añade una descripcion del producto </p>
 
-          <TextArea rows={3} placeholder="AUTO SIZE" maxLength={150} />
+          <TextArea 
+            rows={3} 
+            onChange={updateForm} 
+            placeholder="AUTO SIZE" 
+            maxLength={150} 
+            name="description" 
+            value={form.description} />
         </div>
         {/* fin descripcion */}
+        
 
         {/* categorias */}
         <div>
@@ -100,10 +106,11 @@ const NewProductForm = ({ setCount, setForm, form }) => {
           <div className="grid grid-cols-4 m-2 gap-4">
             {category.map((category) => (
               <button
+                name={category.name}
+                value={form.category}
                 key={category.key}
                 id={category.id}
-                value={category.name}
-                onClick={categorySelect}
+                onClick={updateForm}
                 className={`${
                   selected === category.id
                     ? "bg-[#FFD6E7] border-2 rounded-md border-[#9E1068] text-[#9E1068] font-semibold"
@@ -147,14 +154,13 @@ const NewProductForm = ({ setCount, setForm, form }) => {
         {/* fin categorias dos */}
 
         {/* stock */}
-        <div>
+        <div className="flex flex-col mb-8">
           <div className="mb-8" />
-          <p> Posee stock actualmente? </p>
-
-          <div className="flex flex-col gap-2">
-            <Radio> Si </Radio>
-            <Radio> No </Radio>
-          </div>
+          <p className="text-sm"> Posee stock actualmente? </p>
+          <Radio.Group name="hasStock" onChange={updateForm} value={form.hasStock}>
+            <Radio value={true} style={{ display: "flex", marginBottom: "12px" }}> Si </Radio>
+            <Radio value={false} style={{ display: "flex", marginBottom: "12px" }}> No </Radio>
+          </Radio.Group>
         </div>
         {/* fin stock */}
 

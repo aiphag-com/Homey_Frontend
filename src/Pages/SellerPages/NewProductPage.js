@@ -9,14 +9,17 @@ const NewProductPage = () => {
   const [count, setCount] = useState(1);
   const [form, setForm] = useState({
     name: "",
+    hasPrice: true,
     price: "",
     description: "",
     category: "",
-    telefono: "",
-    cvu: "",
-    // {/*cambiar nombre de variables*/}
+    subcategory: "",
+    hasStock: false,
+    picture: [],
+    render: true,
+    renderFile: []
   });
-  console.log(form);
+
   return (
     <>
       <Header />
@@ -30,7 +33,7 @@ const NewProductPage = () => {
           }
           
           {count === 2 ? (
-            <BoxNewProduct setCount={setCount} />
+            <BoxNewProduct setCount={setCount} setForm={setForm} form={form} />
           ) : null
           }
 

@@ -2,8 +2,16 @@ import React from "react";
 import placeHolderImage from "../../Assets/placeHolderImage.png";
 import { Button, Radio, Steps } from "antd";
 
-const BoxNewProduct = ({ setCount }) => {
+const BoxNewProduct = ({ setCount, setForm, form }) => {
   const {Step} = Steps;
+
+  const updateForm = (e) => {
+    console.log(e.target);
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  }
   return (
     <div className="flex justify-center font-poppins gap-16">
       {/*TITULOS*/}
@@ -27,11 +35,10 @@ const BoxNewProduct = ({ setCount }) => {
           <p className="text-xl text-[#838383]">Elige una opcion</p>
 
           <div className="flex flex-col">
-            <Radio style={{ marginBottom: "12px" }}> Precio por unidad </Radio>
-            <Radio style={{ marginBottom: "12px" }}>
-              {" "}
-              Ya tengo el archivo{" "}
-            </Radio>
+            <Radio.Group name="render" onChange={updateForm} value={form.render}>
+              <Radio value={false} style={{ display: "flex", marginBottom: "12px" }}> Deseo que me contacten para realizar el render </Radio>
+              <Radio value={true} style={{ display: "flex", marginBottom: "12px" }}> Ya tengo el archivo </Radio>
+            </Radio.Group>
 
             <Button
               type="primary"
@@ -71,8 +78,8 @@ const BoxNewProduct = ({ setCount }) => {
           <div className="">
             <img src={placeHolderImage} alt="" />
             <div className="flex flex-col text-center mt-2">
-              <p className="text-xl font-bold">Nombre del producto apariencia</p>
-              <p className="text-lg font-thin">$ XXX</p>
+              <p className="text-xl font-bold">{form?.name}</p>
+              <p className="text-lg font-thin">$ {form?.price}</p>
             </div>
           </div>
           {/*FIN IMAGENES*/}
