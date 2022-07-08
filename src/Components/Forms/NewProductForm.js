@@ -1,158 +1,205 @@
 import React, { useState } from "react";
-import { Button, Input, Upload, Modal, Radio, Space } from 'antd';
+import { Button, Input, Upload, Radio, Steps } from "antd";
 import TextArea from "antd/lib/input/TextArea";
-import { UploadOutlined } from '@ant-design/icons';
-import { getBase64, uploadButton } from "../../Utils/Utils";
+import { UploadOutlined } from "@ant-design/icons";
+import { category } from "../../Utils/Utils";
 
-const NewProductForm = () => {
-  const [form, setForm] = useState({
-    cuit: "",
-    direccion: "",
-    cp: "",
-    email: "",
-    telefono: "",
-    cvu: "",
-  });
-  const [previewVisible, setPreviewVisible] = useState(false);
-  const [previewImage, setPreviewImage] = useState('');
-  const [fileList, setFileList] = useState([]);
+const NewProductForm = ({ setCount, setForm, form }) => {
+  const [selected, setCategory] = useState();
+  const {Step} = Steps;
 
   const updateForm = (e) => {
+    console.log(e.target);
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
-  };
-  const handleCancel = () => setPreviewVisible(false);
-  const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
-    setPreviewImage(file.url || file.preview);
-    setPreviewVisible(true);
+    console.log(e.target);
+    setCategory(e.target.id);
   };
 
-
+  
 
   return (
-    <>
+    <div
+      id="seller_main"
+      className="flex justify-center bg-[#ffffff] font-poppins"
+      onSubmit={() => alert(`Submited thing: ${form.email}`)}
+    >
       <div
-        id="seller_main"
-        className="flex items-center justify-center"
-        onSubmit={() => alert(`Submited thing: ${form.email}`)}
+        id="seller_container"
+        className="p-10 rounded-xl bg-[#ffffff] v-screen"
       >
-        <div
-          id="seller_container"
-          className="block items-center p-10  border-solid border-[2.5px] rounded-xl border-[#EFDEFF] bg-[#ffffff]"
-        >
-          <p className="text-3xl font-bold">Cargar nuevo producto</p>
+        {/*STEPS*/}
+        <div className="flex justify-center mb-6">
+          <Steps current={0}>
+            <Step title="Paso 1" description="Carga datos del producto"/>
+            <Step title="Paso 2" description="Opciones de Realidad Aumentada"/>
+            <Step title="Paso 3" description="Procesando"/>
+          </Steps>
+        </div>
+        {/*FIN STEPS*/}
 
-          {/* Nombre y precio de producto */}
-          <div className="flex">
-            <div className="mr-10">
-              <p className="text-sm text-normal text-[#161616]">
-                Escribe nombre de producto
-              </p>
-              <div>
-                <Input
-                  placeholder="address"
-                  onClick={updateForm}
-                  name="direccion"
-                  value={form.direccion}
-                />
-              </div>
-            </div>
-            <div>
-              <p className="text-l text-normal text-[#161616]">Precio</p>
-              <div>
-                <Input
-                  placeholder="xxxx"
-                  onClick={updateForm}
-                  name="cp"
-                  value={form.cp}
-                />
-              </div>
-            </div>
-          </div>
-          {/* FIN Nombre y precio de producto */}
+        {/*TITULOS*/}
+        <div>
+          <div />
+          <p className="text-4xl font-bold mb-2">
+            Cargar un nuevo producto al catalogo
+          </p>
+          <p className="text-xl text-[#838383]">
+            Escribe los datos del producto
+          </p>
+        </div>
+        {/*FIN TITULOS*/}
 
-          {/* Selecciona grupos de categorías */}
-          <div className="mt-4">
-            <p className="text-1xl font-bold">Selecciona grupos de categorías</p>
-            <div className="grid  grid-cols-3 m-4">
-              <Button type="primary" shape="round" className="m-2">
-                Category 1
-              </Button>
-              <Button type="primary" shape="round" className="m-2">
-                Category 2
-              </Button>
-              <Button type="primary" shape="round" className="m-2" >
-                Category 3
-              </Button>
-              <Button name="Category_4" type="primary" shape="round" className="m-2" >
-                Category 4
-              </Button>
-              <Button name="Category_5" type="primary" shape="round" className="m-2" >
-                Category 5
-              </Button>
-              <Button name="Category_6" type="primary" shape="round" className="m-2" >
-                Category 6
-              </Button>
-            </div>
-          </div>
-          {/* FIN Selecciona grupos de categorías */}
+        {/* nombre del producto */}
+        <div>
+          <div className="mb-8" />
+          <p className="text-sm mb-3"> Escribe Nombre del producto </p>
+          <Input
+            name="category"
+            value={form.name}
+            onChange={updateForm}
+            placeholder="nombre del producto..."
+          />
+        </div>
+        {/* fin nombre del producto */}
 
-          {/* Añade descripción */}
-          <div className="flex flex-col">
-            <p className="text-1xl font-bold">Añade descripción </p>
-            <TextArea rows={4} placeholder="El maximo de caracteres es 150" maxLength={150} />
-            <div className="mt-2">
-              <Upload>
-                <Button icon={<UploadOutlined />}>Upload text</Button>
-              </Upload>
-            </div>
-          </div>
-          {/* FIN Añade descripción */}
-
-          {/*  SUBIR IMAGEN*/}
-          <div className="mt-2 w-96">
-            <Upload
-              listType="picture-card"
-              fileList={fileList}
-              maxCount="10"
-              onPreview={handlePreview}
-              onChange={handleChange}
-            >
-              {fileList.length >= 10 ? null : uploadButton}
-            </Upload>
-            <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
-              <img
-                alt="example"
-                style={{
-                  width: '100%',
-                }}
-                src={previewImage}
-              />
-            </Modal>
-          </div>
-          {/*  FIN SUBIR IMAGEN*/}
-
-          {/*  Realidad aumentada*/}
-          <div>
-            <p className="text-1xl font-bold">Realidad aumentada</p>
-            <Radio.Group>
-            <Space direction="vertical">
-                <Radio value={1}>Deseo que me contacten para hacer el render</Radio>
-                <Radio value={2}>Ya tengo el archivo</Radio>
-                </Space>\
+        {/* precio */}
+        <div className="flex flex-col mb-8">
+          <div className="mb-8" />
+          <p className="text-sm"> PRECIO </p>
+          <Radio.Group name="hasPrice" onChange={updateForm} value={form.hasPrice} >
+            <Radio value={true} style={{ marginBottom: "12px" }}> Precio por unidad </Radio>
+            <Input
+              name="price"
+              value={form.price}
+              onChange={updateForm}
+              style={{ display: "flex",marginBottom: "12px", width: "50%" }}
+            />
+            <Radio value={false} style={{ marginBottom: "12px" }}> Solicitar una cotizacion </Radio>
             </Radio.Group>
+        </div>
+        {/* fin precio */}
+
+        {/* descripcion */}
+        <div>
+          <div className="mb-8" />
+          <p> Añade una descripcion del producto </p>
+
+          <TextArea 
+            rows={3} 
+            onChange={updateForm} 
+            placeholder="AUTO SIZE" 
+            maxLength={150} 
+            name="description" 
+            value={form.description} />
+        </div>
+        {/* fin descripcion */}
+        
+
+        {/* categorias */}
+        <div>
+          <div className="mb-8" />
+          <p> A que categorias esta relacionado? </p>
+
+          <div className="grid grid-cols-4 m-2 gap-4">
+            {category.map((category) => (
+              <button
+                name={category.name}
+                value={form.category}
+                key={category.key}
+                id={category.id}
+                onClick={updateForm}
+                className={`${
+                  selected === category.id
+                    ? "bg-[#FFD6E7] border-2 rounded-md border-[#9E1068] text-[#9E1068] font-semibold"
+                    : "bg-[#F5F5F5] rounded-md"
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
           </div>
-          {/*  FIN Realidad aumentada*/}
+        </div>
+        {/* fin categorias */}
+
+        {/* categorias dos */}
+        <div>
+          <div className="mb-8" />
+          <p>
+            {" "}
+            Selecciona objetos relacionados para que los compradores puedan
+            encontrar el producto{" "}
+          </p>
+
+          <div className="grid grid-cols-3 gap-2">
+            {category[selected]?.subCategory.map((category) => (
+              <button
+                key={category.key}
+                id={category.id}
+                name={category[selected]?.subCategory.name}
+                //onClick={subcategorySelect}
+                className={`${
+                  selected === category.id
+                    ? "bg-[#FFD6E7] rounded-md text-[#9E1068]"
+                    : "bg-[#F5F5F5] rounded-md"
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+        {/* fin categorias dos */}
+
+        {/* stock */}
+        <div className="flex flex-col mb-8">
+          <div className="mb-8" />
+          <p className="text-sm"> Posee stock actualmente? </p>
+          <Radio.Group name="hasStock" onChange={updateForm} value={form.hasStock}>
+            <Radio value={true} style={{ display: "flex", marginBottom: "12px" }}> Si </Radio>
+            <Radio value={false} style={{ display: "flex", marginBottom: "12px" }}> No </Radio>
+          </Radio.Group>
+        </div>
+        {/* fin stock */}
+
+        {/* subir imagen */}
+        <div>
+          <div className="mb-8" />
+          <p> Cargar fotos del producto </p>
+
+          <Upload listType="picture">
+            <Button
+              style={{
+                borderColor: "#C41D7F",
+                color: "#C41D7F",
+                borderRadius: 7,
+              }}
+              icon={<UploadOutlined />}
+            >
+              Adjuntar Archivos
+            </Button>
+          </Upload>
+        </div>
+        {/* fin subir imagen */}
+        <div className="mt-10">
+          <Button
+            onClick={() => setCount(2)}
+            style={{
+              background: "#9254DE",
+              borderWidth: "2px",
+              borderRadius: 7,
+              borderColor: "transparent",
+              color: "#ffffff",
+            }}
+          >
+            SIGUIENTE
+          </Button>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default NewProductForm;

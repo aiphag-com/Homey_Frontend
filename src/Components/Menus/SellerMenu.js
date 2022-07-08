@@ -7,6 +7,7 @@ import {
   PlusOutlined
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -54,7 +55,10 @@ const items = [
 ];
 
 const SellerMenu = () => {
+  const navigate = useNavigate();
   const onClick = (e) => {
+    const result = data.filter((item) => item.key === e.key);
+    navigate(result[0].link);
     console.log("click ", e);
   };
 
@@ -63,7 +67,8 @@ const SellerMenu = () => {
       onClick={onClick}
       className="font-poppins"
       style={{
-        width: 256,
+        width: 350,
+        borderColor: "transparent"
       }}
       defaultSelectedKeys={["1"]}
       defaultOpenKeys={["sub1"]}
@@ -72,5 +77,40 @@ const SellerMenu = () => {
     />
   );
 };
+
+const data = [
+  {
+    key: "1",
+    link: "/Analitycs"
+  },
+  {
+    key: "2",
+    link: "/Deliveries"
+  },
+  {
+    key: "3",
+    link: "/Register"
+  },
+  {
+    key: "4",
+    link: "/NewProductPage"
+  },
+  {
+    key: "5",
+    link: "/CataloguePage"
+  },
+  {
+    key: "6",
+    link: "/CatalogueQuestions"
+  },
+  {
+    key: "7",
+    link: "/EditProfile"
+  },
+  {
+    key: "8",
+    link: "/Security"
+  },
+]
 
 export default SellerMenu;
