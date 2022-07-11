@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# HOMEY WEB, Front end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About:
+This is the repository for the front end version of Homey.
+Homey its a online furniture store.
+This web page consists in two types of user, _seller_ and _admin_.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Pagination:
+pages can be found inside the folder:
 
-### `npm start`
+Homey_Front/src/Pages/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    /login
+        /adminDashboard
+        /sellerDashboard
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requierements:
+    Node: "16.14.2"
+    React: "18.1.0"
+    Axios: "0.27.2"
+    Ant Design: "4.20.6"
+    Sass: "1.52.1"
+    Tailwind: "3.0.24"
 
-### `npm test`
+detailed version in package.json
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+## Resources:
 
-### `npm run build`
+### Components:
+https://ant.design/components/overview/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Icons:
+https://react-icons-kit.vercel.app/iconset/feather
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+https://materialdesignicons.com
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+https://fonts.google.com/?icon.set=Material+Icons
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Fonts:
+https://fonts.google.com/?icon.set=Material+Icons
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    "Poppins": Light, Light Italic, Medium, Bold
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API
+http://3.12.155.78:36000/apidoc/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
